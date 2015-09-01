@@ -4,9 +4,9 @@ Example code for storing a gob as a file
 
 ```golang
 import (
-	"fmt"
+  "fmt"
   "github.com/jacec/gobstore/"
-	"github.com/jacec/gobstore/datastruct"
+  "github.com/jacec/gobstore/datastruct"
 )
 
 func main() {
