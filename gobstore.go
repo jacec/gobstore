@@ -60,3 +60,8 @@ func (gobstore *Gobstore) Save(value datastruct.DataValue) error {
 func (gobstore *Gobstore) Fetch() (datastruct.DataValue, error) {
 	return gobstore.open()
 }
+
+//Destroy deletes the gobstore from the file system
+func (gobstore *Gobstore) Destroy() error {
+	return os.Remove(gobstore.gobstoreName + ".data")
+}
