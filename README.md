@@ -12,17 +12,17 @@ import (
 func main() {
 
   //creat data struct value
-	var dv datastruct.DataValue
+  var dv datastruct.DataValue
 
   //create example person struct
-	var p datastruct.Person
-	p.Firstname = "test-firstname"
-	p.Lastname = "test-lastname"
-	p.Title = "test-title"
-	p.Age = 42
+  var p datastruct.Person
+  p.Firstname = "test-firstname"
+  p.Lastname = "test-lastname"
+  p.Title = "test-title"
+  p.Age = 42
 
   //set the data to the person
-	dv.Data = p
+  dv.Data = p
 
   //create a new gobstore
 	gs := gobstore.NewGobstore("person")
@@ -31,8 +31,11 @@ func main() {
 	gs.Save(dv)
 
   //now fetch it back
-  dt, _ := g.Fetch()
+  dt, _ := gs.Fetch()
   fmt.Printf("result: %v", dt)
+
+  //Finally, destroy it from the file system
+  gs.Destroy()
 
 }
 
