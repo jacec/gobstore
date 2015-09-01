@@ -4,7 +4,7 @@ import (
 	"encoding/gob"
 	"os"
 
-	"github.com/jacec/gobstore/datatype" //Change to YOUR datatype here
+	"github.com/jacec/gobstore/datastruct" //Change to YOUR datastruct here
 )
 
 //Gobstore is a struct containing the details of the gobstore and the lifecycle methods
@@ -12,9 +12,9 @@ type Gobstore struct {
 	gobstoreName string
 }
 
-func (gobstore *Gobstore) open() (datatype.DataType, error) {
+func (gobstore *Gobstore) open() (datastruct.DataValue, error) {
 
-	var data datatype.DataType
+	var data datastruct.DataValue
 	// open data file
 	dataFile, err := os.Open(gobstore.gobstoreName + ".data")
 	if err != nil {
@@ -30,7 +30,7 @@ func (gobstore *Gobstore) open() (datatype.DataType, error) {
 
 }
 
-func (gobstore *Gobstore) save(value datatype.DataType) error {
+func (gobstore *Gobstore) save(value datastruct.DataValue) error {
 
 	// create a file
 	dataFile, err := os.Create(gobstore.gobstoreName + ".data")
@@ -52,11 +52,11 @@ func NewGobstore(GobstoreName string) *Gobstore {
 }
 
 //Save saves the supplied value to the gobstore
-func (gobstore *Gobstore) Save(value datatype.DataType) error {
+func (gobstore *Gobstore) Save(value datastruct.DataValue) error {
 	return gobstore.save(value)
 }
 
 //Fetch fetches the stored Gobtype and returns it
-func (gobstore *Gobstore) Fetch() (datatype.DataType, error) {
+func (gobstore *Gobstore) Fetch() (datastruct.DataValue, error) {
 	return gobstore.open()
 }
