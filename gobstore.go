@@ -4,7 +4,7 @@ import (
 	"encoding/gob"
 	"os"
 
-	"github.com/jacec/gobstore/datastruct" //Change to YOUR datastruct here
+	"github.com/jacec/gobstore/datastruct"
 )
 
 //Gobstore is a struct containing the details of the gobstore and the lifecycle methods

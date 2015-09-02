@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/jacec/gobstore/datastruct"
+	"github.com/jacec/gobstore/datastruct/person"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -13,7 +14,7 @@ var maxPeople = 5000
 func TestSave(t *testing.T) {
 
 	var dv datastruct.DataValue
-	var p datastruct.Person
+	var p person.Person
 	p.Firstname = "test-firstname"
 	p.Lastname = "test-lastname"
 	p.Title = "test-title"
@@ -53,7 +54,7 @@ func TestDestroy(t *testing.T) {
 func TestMultiSave(t *testing.T) {
 	for x := 0; x < maxPeople; x++ {
 		var dv datastruct.DataValue
-		var p datastruct.Person
+		var p person.Person
 		strX := strconv.Itoa(x)
 		p.Firstname = "test-firstname" + strX
 		p.Lastname = "test-lastname" + strX

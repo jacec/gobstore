@@ -25,7 +25,7 @@ func main() {
   dv.Data = p
 
   //create a new gobstore
-	gs := gobstore.NewGobstore("person")
+  gs := gobstore.NewGobstore("person")
 
   //save it!
 	gs.Save(dv)
